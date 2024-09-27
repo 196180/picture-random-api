@@ -6,16 +6,23 @@ updateCounter();
 
 // 获取参数
 $format = isset($_GET['format']) ? $_GET['format'] : 'pic';
+$type = isset($_GET['type']) ? $_GET['type'] : null;
 
 // 图片类型目录
-$typeDirs = ['meinv', 'dongman', 'fengjin'];
+$typeDirs = ['meinv', 'dongman', 'fengjing'];
 
 // 初始化图片数组
 $images = [];
 
-// 遍历每个目录，获取所有图片
-foreach ($typeDirs as $typeDir) {
-    $images = array_merge($images, glob($typeDir . '/*.jpg'));
+// 检查类型参数是否有效
+if ($type && in_array($type, $typeDirs)) {
+    // 如果指定了类型，从该目录获取图片
+    $images = glob($type . '/*.jpg');
+} else {
+    // 否则，从所有目录获取图片
+    foreach ($typeDirs as $typeDir) {
+        $images = array_merge($images, glob($typeDir . '/*.jpg'));
+    }
 }
 
 // 检查是否有图片
