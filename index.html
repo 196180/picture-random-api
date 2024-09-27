@@ -127,7 +127,7 @@
     <p>感谢<a href="https://serv00.com" target="_blank">serv00主机商</a> 提供的虚拟主机。</p>
 
     <h3 class="api-link">接口地址:</h3>
-    <p><a href="https://ceshi12.zjmkkk.rr.nu/api.php" target="_blank">https://ceshi12.zjmkkk.rr.nu/api.php</a></p>
+    <p><a href="https://yourdomain/api.php" target="_blank">https://yourdomain/api.php</a></p>
     <div class="counter">
         <div class="counter-item">
             <div class="counter-value" id="total-count">-</div>
@@ -173,23 +173,23 @@
             <th>描述</th>
         </tr>
         <tr>
-            <td>https://images.linux-do.rr.nu/api.php</td>
+            <td>https://yourdomain/api.php</td>
             <td>默认输出一张随机图片（从所有类别中选择）</td>
         </tr>
         <tr>
-            <td>https://images.linux-do.rr.nu/api.php?type=meinv</td>
+            <td>https://yourdomain/api.php?type=meinv</td>
             <td>获取美女类型的随机图片</td>
         </tr>
         <tr>
-            <td>https://images.linux-do.rr.nu/api.php?type={dongman,fengjing}</td>
+            <td>https://yourdomain/api.php?type={dongman,fengjing}</td>
             <td>获取动漫、风景类型的随机图片</td>
         </tr>
         <tr>
-            <td>https://images.linux-do.rr.nu/api.php?format=json</td>
+            <td>https://yourdomain/api.php?format=json</td>
             <td>返回图片的JSON格式地址</td>
         </tr>
         <tr>
-            <td>https://images.linux-do.rr.nu/api.php?type={fengjing,meinv}&format=json</td>
+            <td>https://yourdomain/api.php?type={fengjing,meinv}&format=json</td>
             <td>获取JSON格式的风景、美女类型图片地址</td>
         </tr>
     </table>
@@ -198,7 +198,7 @@
 <script>
     async function updateBackground() {
         try {
-            const response = await fetch('https://ceshi12.zjmkkk.rr.nu/api.php?format=json');
+            const response = await fetch('https://yourdomain/api.php?format=json');
             const data = await response.json();
             const imageUrl = data.imageUrl;
 
@@ -213,7 +213,7 @@
     setInterval(updateBackground, 15000); // 每15秒更新一次背景
 
     function updateCounter() {
-        fetch('https://ceshi12.zjmkkk.rr.nu/get_counter.php')
+        fetch('https://yourdomain/get_counter.php')
             .then(response => response.json())
             .then(data => {
                 document.getElementById('total-count').textContent = data.total;
