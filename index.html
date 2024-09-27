@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linuxdo Random Images</title>
+    <link rel="icon" href="image/linuxdo.png" type="image/png">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            transition: opacity 1s ease-in-out;
+        }
+
+        @media (max-width: 768px) {
+            .background {
+                background-size: contain;
+            }
+        }
+
+        .header {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff0080, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .content {
+            position: relative;
+            z-index: 1;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            height: 60vh; /* 调整高度 */
+            overflow-y: auto;
+        }
+
+        .content h2, .content h3 {
+            font-weight: bold;
+            font-size: 2em;
+            background: linear-gradient(90deg, #ff0080, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .api-link {
+            font-size: 1.5em;
+            font-weight: bold;
+            background: linear-gradient(90deg, #ff0080, #00bfff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .section {
+            margin-bottom: 20px; /* 调整底部外边距 */
+        }
+
+        .counter {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .counter-item {
+            text-align: center;
+        }
+
+        .counter-value {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #00bfff;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="bg" class="background"></div>
+
+<div class="header">
+    <h1><a href="https://linux.do" style="text-decoration:none; color:inherit;">Linuxdo Random Images</a></h1>
+</div>
+
+<div class="content section">
+    <h2>随机图片说明</h2>
+    <p>目前系统共收录10000+张图片，图片侵权请联系：
+    <a href="mailto:xjfkkk@duck.com">xjfkkk@duck.com</a>。</p>
+    <p>图片均为HTTPS协议，采用本地储存图,感谢 <a href="https://tuapi.eees.cc" target="_blank">https://tuapi.eees.cc</a> 站收集的图片。</p>
+    <p>感谢<a href="https://serv00.com" target="_blank">serv00主机商</a> 提供的虚拟主机。</p>
+
+    <h3 class="api-link">接口地址:</h3>
+    <p><a href="https://ceshi12.zjmkkk.rr.nu/api.php" target="_blank">https://ceshi12.zjmkkk.rr.nu/api.php</a></p>
+    <div class="counter">
+        <div class="counter-item">
+            <div class="counter-value" id="total-count">-</div>
+            <div>总调用次数</div>
+        </div>
+        <div class="counter-item">
+            <div class="counter-value" id="month-count">-</div>
+            <div>本月调用次数</div>
+        </div>
+        <div class="counter-item">
+            <div class="counter-value" id="yesterday-count">-</div>
+            <div>昨日调用次数</div>
+        </div>
+        <div class="counter-item">
+            <div class="counter-value" id="today-count">-</div>
+            <div>今日调用次数</div>
+        </div>
+    </div>
+    
+    <h3>参数说明</h3>
+    <table>
+        <tr>
+            <th>参数</th>
+            <th>描述</th>
+            <th>示例值</th>
+        </tr>
+        <tr>
+            <td>type</td>
+            <td>图片类别，可选。指定从哪个类别获取图片</td>
+            <td>meinv, dongman, fengjin</td>
+        </tr>
+        <tr>
+            <td>format</td>
+            <td>返回数据格式。默认直接返回图片，可以选择返回JSON格式</td>
+            <td>json, pic（默认）</td>
+        </tr>
+    </table>
+
+    <h3>调用示例</h3>
+    <table>
+        <tr>
+            <th>URL 示例</th>
+            <th>描述</th>
+        </tr>
+        <tr>
+            <td>https://images.linux-do.rr.nu/api.php</td>
+            <td>默认输出一张随机图片（从所有类别中选择）</td>
+        </tr>
+        <tr>
+            <td>https://images.linux-do.rr.nu/api.php?type=meinv</td>
+            <td>获取美女类型的随机图片</td>
+        </tr>
+        <tr>
+            <td>https://images.linux-do.rr.nu/api.php?type={dongman,fengjing}</td>
+            <td>获取动漫、风景类型的随机图片</td>
+        </tr>
+        <tr>
+            <td>https://images.linux-do.rr.nu/api.php?format=json</td>
+            <td>返回图片的JSON格式地址</td>
+        </tr>
+        <tr>
+            <td>https://images.linux-do.rr.nu/api.php?type={fengjing,meinv}&format=json</td>
+            <td>获取JSON格式的风景、美女类型图片地址</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    async function updateBackground() {
+        try {
+            const response = await fetch('https://ceshi12.zjmkkk.rr.nu/api.php?format=json');
+            const data = await response.json();
+            const imageUrl = data.imageUrl;
+
+            const bgElement = document.getElementById('bg');
+            bgElement.style.backgroundImage = `url('${imageUrl}')`;
+        } catch (error) {
+            console.error('Failed to load image:', error);
+        }
+    }
+
+    updateBackground();
+    setInterval(updateBackground, 15000); // 每15秒更新一次背景
+
+    function updateCounter() {
+        fetch('https://ceshi12.zjmkkk.rr.nu/get_counter.php')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('total-count').textContent = data.total;
+                document.getElementById('month-count').textContent = data.month;
+                document.getElementById('yesterday-count').textContent = data.yesterday;
+                document.getElementById('today-count').textContent = data.today;
+            })
+            .catch(error => console.error('Error fetching counter data:', error));
+    }
+
+    updateCounter(); // 初始更新计数器
+    setInterval(updateCounter, 60000); // 每分钟更新一次计数器
+</script>
+
+</body>
+</html>
