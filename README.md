@@ -1,6 +1,7 @@
 # picture-random-api
 
-## 将项目文件上传至Serv00类似虚拟主机的`public_html`目录下，将`index.html`文件`https://yourdomain/api.php`中的`yourdomain`部分修改为你的域名，并将你的图片按分类上传至fengjing、meinv、dongman中即可随机调用图片。
+## 修改文件内容实现随机接口调用
+将项目文件上传至Serv00类似虚拟主机的`public_html`目录下，将`index.html`文件`https://yourdomain/api.php`中的`yourdomain`部分修改为你的域名，并将你的图片按分类上传至fengjing、meinv、dongman中即可随机调用图片。
 
 ## 接口调用说明
 
