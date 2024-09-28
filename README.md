@@ -16,8 +16,8 @@
 
 | URL 示例                                          | 描述                             |
 |---------------------------------------------------|----------------------------------|
-| https://images.linux-do.rr.nu/api.php             | 默认输出一张随机图片（从所有类别中选择） |
-| https://images.linux-do.rr.nu/api.php?type=meinv  | 获取美女类型的随机图片                   |
-| https://images.linux-do.rr.nu/api.php?type={dongman,fengjing} | 获取动漫、风景类型的随机图片           |
-| https://images.linux-do.rr.nu/api.php?format=json | 返回图片的JSON格式地址                |
-| https://images.linux-do.rr.nu/api.php?type={fengjing,meinv}&format=json | 获取JSON格式的风景、美女类型图片地址 |
+| https://yourdomain/api.php             | 默认输出一张随机图片（从所有类别中选择） |
+| https://yourdomain/api.php?type=meinv  | 获取美女类型的随机图片                   |
+| https://yourdomain/api.php?type={dongman,fengjing} | 获取动漫、风景类型的随机图片           |
+| https://yourdomain/api.php?format=json | 返回图片的JSON格式地址                |
+| https://yourdomain/api.php?type={fengjing,meinv}&format=json | 获取JSON格式的风景、美女类型图片地址 |
